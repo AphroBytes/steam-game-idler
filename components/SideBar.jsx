@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { IoGameController, IoSettings } from 'react-icons/io5';
+import { FaRankingStar } from "react-icons/fa6";
 import { logEvent } from '@/utils/utils';
 
 export default function SideBar({ setUserSummary, activePage, setActivePage }) {
@@ -34,6 +35,23 @@ export default function SideBar({ setUserSummary, activePage, setActivePage }) {
                             />
                         )}
                         <IoGameController className='text-offwhite' fontSize={24} />
+                    </div>
+                </div>
+                <div className='flex justify-center items-center flex-col'>
+                    <div className='relative flex justify-center items-center w-full h-[62px] hover:bg-sgi dark:hover:bg-titlehover cursor-pointer' onClick={() => setActivePage('leaderboard')}>
+                        {activePage === 'leaderboard' && (
+                            <motion.div
+                                className='absolute w-full border-r-4 border-white'
+                                initial={{ height: 0 }}
+                                whileInView={{ height: 30 }}
+                                transition={{
+                                    type: 'spring',
+                                    stiffness: 350,
+                                    damping: 18,
+                                }}
+                            />
+                        )}
+                        <FaRankingStar className='text-offwhite' fontSize={24} />
                     </div>
                 </div>
 

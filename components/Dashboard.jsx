@@ -6,6 +6,7 @@ import Settings from './settings/Settings';
 import CardFarming from './automation/CardFarming';
 import Achievements from './achievements/Achievements';
 import AchievementUnlocker from './automation/AchievementUnlocker';
+import Leaderboard from './leaderboard/Leaderboard';
 
 export default function Dashboard({ userSummary, setUserSummary }) {
     const [activePage, setActivePage] = useState('games');
@@ -35,6 +36,11 @@ export default function Dashboard({ userSummary, setUserSummary }) {
                             showAchievements={showAchievements}
                             setShowAchievements={setShowAchievements}
                         />
+                    </React.Fragment>
+                ) : activePage === 'leaderboard' ? (
+                    <React.Fragment>
+                        <SideBar setUserSummary={setUserSummary} activePage={activePage} setActivePage={setActivePage} />
+                        <Leaderboard steamId={userSummary.steamId} />
                     </React.Fragment>
                 ) : activePage === 'settings' ? (
                     <React.Fragment>
